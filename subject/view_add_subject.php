@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="units" name="units" placeholder="Total Units" required>
+                        <input type="number" class="form-control" id="units" name="units" placeholder="Total Units" required>
                         <label for="floatingInput">Total Units</label>
                     </div>
 
