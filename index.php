@@ -40,7 +40,7 @@
                         <thead>
                             <th>No.</th>
                             <th>Subject Code</th>
-                            <th>Course ID</th>
+                            <th>Course Name</th>
                             <th>Course Description</th>
                             <th>Total Units</th>
                             <th>With Lab Components</th>
@@ -58,12 +58,15 @@
                                 $sql = 'SELECT * FROM subject ORDER BY subject_code ASC';
                                 $no = 0;
                                 foreach ($db->query($sql) as $row) {
+                                    $sql2 = $db->prepare('SELECT course.name FROM course INNER JOIN subject ON course.id = subject.course_id WHERE course.id='.$row['course_id']);
+                                    $sql2 -> execute();
+                                    $course_name = $sql2->fetch();
                                     $no++;
                         ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
                                         <td><?php echo $row['subject_code']; ?></td>
-                                        <td><?php echo $row['course_id']; ?></td>
+                                        <td><?php echo $course_name['name']; ?></td>
                                         <td><?php echo $row['course_description']; ?></td>
                                         <td><?php echo $row['total_units']; ?></td>
                                         <td><?php echo $row['with_lab_components']; ?></td>
