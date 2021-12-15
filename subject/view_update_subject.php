@@ -25,12 +25,10 @@
                                 $stmt->execute();
                                 $courses = $stmt->fetchAll();
                             ?>
-
                             <option selected></option>
                             <?php foreach($courses as $course): ?>
                                 <option value="<?= $course['id']; ?>"><?= $course['name']; ?></option>
                             <?php endforeach; ?>
-
                         </select>
                         <label for="floatingSelect">Course</label>
                         <?php
@@ -44,7 +42,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="units" name="units" placeholder="Total Units" value="<?php echo $row['total_units']; ?>" required>
+                        <input type="number" class="form-control" id="units" name="units" placeholder="Total Units" value="<?php echo $row['total_units']; ?>" required>
                         <label for="floatingInput">Total Units</label>
                     </div>
 
